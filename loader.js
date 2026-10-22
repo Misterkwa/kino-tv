@@ -9,14 +9,16 @@
     if (window.top !== window || window.__kinoLoader || !/(^|\.)cinejoy\.pk$/.test(location.hostname)) return;
     window.__kinoLoader = true;
 
-    var SRC = 'https://gist.githubusercontent.com/Misterkwa/e4f67df3586544c5601d05eb412d1f9f/raw/cinejoy-tv.js';
-    var CACHE_KEY = 'nfx_tv_code';
+    var SRC = 'https://gist.githubusercontent.com/Misterkwa/e4f67df3586544c5601d05eb412d1f9f/raw/kino-app.js';
+    var CACHE_KEY = 'kino_app_code';
+
+    // Pilot: ładowacz startuje przed skryptami strony, więc jego nasłuch jest pierwszy w kolejce
+    // i przekazuje klawisze aplikacji, nawet jeśli ta wczyta się później niż strona.
+    window.__kinoKeyTrap = true;
+    window.addEventListener('keydown', function (e) { if (window.__kinoKey) window.__kinoKey(e); }, true);
 
     // Wyłączenie reklam musi zadziałać od razu, zanim strona wczyta swoje skrypty.
-    try {
-        var settings = JSON.parse(localStorage.getItem('nfx_tv_settings') || '{}');
-        if (settings.noAds !== false) localStorage.setItem('addies', 'false');
-    } catch (e) { /* bez localStorage */ }
+    try { localStorage.setItem('addies', 'false'); } catch (e) { /* bez localStorage */ }
 
     var ran = false;
     function run(code) {

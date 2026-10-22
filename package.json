@@ -1,10 +1,10 @@
 {
   "name": "kino-tv",
   "appName": "Kino",
-  "version": "1.0.1",
-  "description": "Prywatna nakładka na stronę z filmami: sterowanie pilotem.",
+  "version": "2.0.0",
+  "description": "Kino: lekki interfejs TV dla cinejoy (pilot, historia i listy z konta).",
   "packageType": "mods",
-  "websiteURL": "https://cinejoy.pk/",
+  "websiteURL": "https://cinejoy.pk/settings",
   "main": "loader.js",
   "keys": [
     "MediaPlayPause",
