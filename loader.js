@@ -9,7 +9,7 @@
     if (window.top !== window || window.__kinoLoader || !/(^|\.)cinejoy\.pk$/.test(location.hostname)) return;
     window.__kinoLoader = true;
 
-    var SRC = 'https://gist.githubusercontent.com/Misterkwa/e4f67df3586544c5601d05eb412d1f9f/raw/kino-app.js';
+    var SRC = 'https://tv.sgolabek.pl/code/kino-app.js';
     var CACHE_KEY = 'kino_app_code';
 
     // Pilot: ładowacz startuje przed skryptami strony, więc jego nasłuch jest pierwszy w kolejce
