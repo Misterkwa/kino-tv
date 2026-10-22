@@ -5,7 +5,8 @@
 (function () {
     'use strict';
 
-    if (window.top !== window || window.__kinoLoader) return;
+    // tylko główne okno cinejoy.pk (TizenBrew wstrzykuje też w ramki i we własne menu)
+    if (window.top !== window || window.__kinoLoader || !/(^|\.)cinejoy\.pk$/.test(location.hostname)) return;
     window.__kinoLoader = true;
 
     var SRC = 'https://gist.githubusercontent.com/Misterkwa/e4f67df3586544c5601d05eb412d1f9f/raw/cinejoy-tv.js';
